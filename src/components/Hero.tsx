@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import logoAsset from "@/assets/logo.png";
 
 export default function Hero() {
@@ -110,15 +111,17 @@ export default function Hero() {
 
       {/* Main Navigation */}
       <nav className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-5 sm:px-8">
-        {/* Brand Logo Asset Only (No NOVALAB text) */}
+        {/* Brand Mark: cropped to icon + wordmark, tagline strip clipped so the mark stays tight and vertically centered in the nav row */}
         <a href="#" className="flex items-center shrink-0">
-          <Image
-            src={logoAsset}
-            alt="Logo"
-            height={44}
-            className="h-10 w-auto object-contain drop-shadow-md sm:h-12"
-            priority
-          />
+          <div className="relative h-10 aspect-[159/40] overflow-hidden sm:h-12">
+            <Image
+              src={logoAsset}
+              alt="Logo"
+              fill
+              className="object-cover object-top drop-shadow-md"
+              priority
+            />
+          </div>
         </a>
 
         {/* Navigation Links */}
@@ -249,15 +252,15 @@ export default function Hero() {
 
           {/* 2 CTA Buttons: TIMELINE and EVENTS */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-8">
-            <a
-              href="#timeline"
+            <Link
+              href="/timeline"
               className="inline-flex items-center gap-2.5 rounded-full border border-white/60 bg-white/10 px-6 py-3 text-xs font-bold tracking-wider text-white uppercase backdrop-blur-xs transition-all hover:bg-white hover:text-slate-950 sm:text-sm"
             >
               <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                 <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
               </svg>
               <span>TIMELINE</span>
-            </a>
+            </Link>
 
             <a
               href="#events"
