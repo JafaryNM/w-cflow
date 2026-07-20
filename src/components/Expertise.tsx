@@ -1,72 +1,28 @@
 "use client";
 
+import { UtensilsCrossed, Sprout, Layers } from "lucide-react";
+
 const EXPERTISE_CARDS = [
   {
     id: "food",
     title: "Food & Beverage Analysis",
     image: "/images/food-analysis.jpg",
     positionClass: "translate-y-0",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        className="h-12 w-12 stroke-brand-primary"
-        fill="none"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 2L19 6V14L12 18L5 14V6L12 2Z" />
-        <circle cx="12" cy="10" r="3" />
-        <path d="M12 7V10M12 10L14.5 11.5M12 10L9.5 11.5" />
-        <circle cx="5" cy="6" r="1.5" fill="var(--color-brand-primary)" />
-        <circle cx="19" cy="6" r="1.5" fill="var(--color-brand-primary)" />
-        <circle cx="19" cy="14" r="1.5" fill="var(--color-brand-primary)" />
-        <circle cx="5" cy="14" r="1.5" fill="var(--color-brand-primary)" />
-      </svg>
-    ),
+    icon: <UtensilsCrossed className="h-10 w-10 text-[#E85D5D]" strokeWidth={1.8} />,
   },
   {
     id: "agro",
     title: "Agroscience Analysis",
     image: "/images/agro-analysis.jpg",
     positionClass: "md:translate-y-12 lg:translate-y-16",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        className="h-12 w-12 stroke-brand-primary"
-        fill="none"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="9" strokeDasharray="3 3" />
-        <path d="M12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C14.76 17 17 14.76 17 12" />
-        <circle cx="10" cy="10" r="1.5" fill="var(--color-brand-primary)" />
-        <circle cx="14" cy="13" r="1" fill="var(--color-brand-primary)" />
-        <circle cx="11" cy="14.5" r="1" fill="var(--color-brand-primary)" />
-      </svg>
-    ),
+    icon: <Sprout className="h-10 w-10 text-[#E85D5D]" strokeWidth={1.8} />,
   },
   {
     id: "soil",
     title: "Soil Analysis",
     image: "/images/soil-analysis.jpg",
     positionClass: "translate-y-0",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        className="h-12 w-12 stroke-brand-primary"
-        fill="none"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <ellipse cx="12" cy="17" rx="8" ry="3" />
-        <ellipse cx="12" cy="17" rx="5" ry="1.8" />
-        <path d="M12 4V10" />
-        <path d="M12 10C12 10 10.5 12 12 13.5C13.5 12 12 10 12 10Z" fill="var(--color-brand-primary)" />
-      </svg>
-    ),
+    icon: <Layers className="h-10 w-10 text-[#E85D5D]" strokeWidth={1.8} />,
   },
 ];
 
@@ -158,7 +114,7 @@ export default function Expertise() {
               {/* Inner Content overlay centered inside inner pointy-top white hexagon */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none z-10">
                 {/* 64px x 69px Icon Holder */}
-                <div className="w-[64px] h-[69px] flex items-center justify-center rounded-full bg-brand-pale/50">
+                <div className="w-[64px] h-[69px] flex items-center justify-center rounded-full bg-red-50/50">
                   {card.icon}
                 </div>
 

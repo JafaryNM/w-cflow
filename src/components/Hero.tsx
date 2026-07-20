@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import {
+  Phone,
+  MapPin,
+  Play,
+  MessageSquare,
+  History,
+  Calendar,
+  Menu,
+  X,
+} from "lucide-react";
 import logoAsset from "@/assets/logo.png";
 
 export default function Hero() {
@@ -30,22 +39,12 @@ export default function Hero() {
               href="tel:+188700600"
               className="flex items-center gap-2 transition-colors hover:text-white"
             >
-              <svg
-                className="h-3.5 w-3.5 fill-current text-white/80"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-              </svg>
+              <Phone className="h-3.5 w-3.5 text-white/80" />
               <span>(+1) 88 700 600</span>
             </a>
 
             <div className="flex items-center gap-2">
-              <svg
-                className="h-3.5 w-3.5 fill-current text-white/80"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
+              <MapPin className="h-3.5 w-3.5 text-white/80" />
               <span>310 West 14th North Street, NY</span>
             </div>
           </div>
@@ -96,12 +95,7 @@ export default function Hero() {
               className="inline-flex items-center gap-1.5 rounded border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-white/20"
             >
               <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-400">
-                <svg
-                  className="h-2 w-2 translate-x-[0.5px] fill-slate-950"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                <Play className="h-2 w-2 fill-slate-950 text-slate-950 translate-x-[0.5px]" />
               </span>
               <span>Download this video</span>
             </button>
@@ -111,17 +105,15 @@ export default function Hero() {
 
       {/* Main Navigation */}
       <nav className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-5 sm:px-8">
-        {/* Brand Mark: cropped to icon + wordmark, tagline strip clipped so the mark stays tight and vertically centered in the nav row */}
+        {/* Brand Logo Asset Only */}
         <a href="#" className="flex items-center shrink-0">
-          <div className="relative h-10 aspect-[159/40] overflow-hidden sm:h-12">
-            <Image
-              src={logoAsset}
-              alt="Logo"
-              fill
-              className="object-cover object-top drop-shadow-md"
-              priority
-            />
-          </div>
+          <Image
+            src={logoAsset}
+            alt="Logo"
+            height={44}
+            className="h-10 w-auto object-contain drop-shadow-md sm:h-12"
+            priority
+          />
         </a>
 
         {/* Navigation Links */}
@@ -162,9 +154,7 @@ export default function Hero() {
             href="#"
             className="inline-flex items-center gap-2 rounded-md border border-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-white hover:text-slate-950 sm:text-sm"
           >
-            <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
-            </svg>
+            <MessageSquare className="h-4 w-4" />
             <span>Schedule a consultation</span>
           </a>
         </div>
@@ -176,28 +166,7 @@ export default function Hero() {
           aria-label="Toggle navigation menu"
           className="inline-flex items-center justify-center rounded-md border border-white/30 p-2 text-white md:hidden"
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
+          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
@@ -224,9 +193,7 @@ export default function Hero() {
               href="#"
               className="mt-2 inline-flex items-center gap-2 rounded-md border border-white/70 px-4 py-2 text-xs font-semibold text-white"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-              </svg>
+              <MessageSquare className="h-4 w-4" />
               <span>Schedule a consultation</span>
             </a>
           </div>
@@ -252,36 +219,31 @@ export default function Hero() {
 
           {/* 2 CTA Buttons: TIMELINE and EVENTS */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-8">
-            <Link
-              href="/timeline"
+            <a
+              href="#timeline"
               className="inline-flex items-center gap-2.5 rounded-full border border-white/60 bg-white/10 px-6 py-3 text-xs font-bold tracking-wider text-white uppercase backdrop-blur-xs transition-all hover:bg-white hover:text-slate-950 sm:text-sm"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
-              </svg>
+              <History className="h-4 w-4" />
               <span>TIMELINE</span>
-            </Link>
+            </a>
 
             <a
               href="#events"
               className="inline-flex items-center gap-2.5 rounded-full bg-[#0084e3] px-6 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-colors hover:bg-[#0074ca] sm:text-sm"
             >
-              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
-              </svg>
+              <Calendar className="h-4 w-4" />
               <span>EVENTS</span>
             </a>
           </div>
 
-          {/* Supported Partners Section: moved down, transparent label, larger logos */}
+          {/* Supported Partners Section: moved down, clean transparent side dividers */}
           <div className="mt-16 sm:mt-20 lg:mt-24 w-full max-w-5xl mx-auto">
-            <div className="relative flex items-center justify-center mb-8">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-white/20" />
-              </div>
-              <span className="relative bg-transparent px-4 text-[11px] sm:text-xs font-bold tracking-[0.2em] text-white/75 uppercase">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-[1px] w-16 sm:w-28 lg:w-36 bg-white/20" />
+              <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-white/75 uppercase whitespace-nowrap">
                 SUPPORTED PARTNERS
               </span>
+              <div className="h-[1px] w-16 sm:w-28 lg:w-36 bg-white/20" />
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-14">
