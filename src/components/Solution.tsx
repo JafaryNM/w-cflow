@@ -1,6 +1,6 @@
 "use client";
 
-import { Waves, BrainCircuit, RadioTower, ArrowRight } from "lucide-react";
+import { Waves, BrainCircuit, RadioTower, ArrowUpRight } from "lucide-react";
 
 const SOLUTION_LAYERS = [
   {
@@ -66,20 +66,22 @@ export default function Solution() {
           <div className="lg:col-span-5 flex flex-col items-start">
             <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3] bg-slate-900/50">
               <img
-                src="/images/solution-feature.jpg"
-                alt="Pangani Basin Flood Monitoring System"
+                src="/images/cflow-solution-sensor.jpg"
+                alt="Pangani Basin IoT Flood Telemetry Sensor Station"
                 className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
             </div>
 
-            {/* Amber CTA Button (Image 1 style) */}
+            {/* Amber CTA Pill Button with White Circle Arrow Badge */}
             <a
               href="#timeline"
-              className="mt-8 inline-flex items-center gap-2.5 rounded-full bg-amber-400 px-7 py-3.5 text-xs font-extrabold tracking-wider text-slate-950 uppercase shadow-xl transition-all hover:bg-amber-300 hover:shadow-2xl active:scale-95 sm:text-sm"
+              className="group mt-8 inline-flex items-center gap-3.5 rounded-full bg-amber-400 pl-6 pr-1.5 py-1.5 text-xs sm:text-sm font-extrabold tracking-wider text-slate-950 uppercase shadow-xl transition-all hover:bg-amber-300 hover:shadow-2xl active:scale-95"
             >
               <span>LEARN ABOUT OUR PROGRAMS</span>
-              <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+              <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-slate-950 shadow-xs group-hover:scale-105 transition-transform duration-300">
+                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+              </div>
             </a>
           </div>
 
@@ -94,11 +96,11 @@ export default function Solution() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   {layer.icon}
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight">
                     {layer.title}
                   </h3>
                 </div>
-                <p className="pl-9 text-sm sm:text-base leading-relaxed text-white/85">
+                <p className="text-sm sm:text-base text-slate-200/90 leading-relaxed pl-9">
                   {layer.description}
                 </p>
               </div>

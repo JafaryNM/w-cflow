@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-ubuntu",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "NOVALAB — Comprehensive Laboratory Services",
+  title: "C-FLOW — Community Flood Early Warning System",
   description:
-    "Ensuring the delivery of reliable, validated data, and therefore safer product to market.",
+    "Community-driven, AI-powered flood monitoring and early warning system across the Pangani Basin, Tanzania.",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -22,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased ${ubuntu.variable}`}>
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
