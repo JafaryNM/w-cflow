@@ -72,7 +72,7 @@ const EXPERTISE_CARDS = [
 
 export default function Expertise() {
   return (
-    <section className="relative w-full bg-[#fafafa] py-20 lg:py-28 overflow-hidden text-slate-900 font-sans">
+    <section className="relative w-full bg-[#fafafa] pt-[78px] pb-20 lg:pb-28 overflow-hidden text-slate-900 font-sans">
       {/* Background Image Provided by User */}
       <div className="absolute inset-0 z-0">
         <img
@@ -87,39 +87,39 @@ export default function Expertise() {
       <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="mb-14 text-center lg:mb-16">
+        {/* Section Header (580px max-width, 64px bottom margin) */}
+        <div className="mx-auto max-w-[580px] text-center mb-[64px]">
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Our Expertise
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mx-auto mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
             Improve all products to make them safer, better and more accessible
             for environment.
           </p>
         </div>
 
-        {/* 3 Hexagonal Cards Grid (373px x 423px exact dimensions, 40px flexible gap) */}
-        <div className="grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-3 md:gap-6 lg:gap-[40px] pb-12 lg:pb-16 max-w-[1240px] mx-auto">
+        {/* 3 Pointy-Top Hexagonal Cards Grid (373px x 423px, 40px Gap, V-Staggered Static) */}
+        <div className="grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-3 md:gap-6 lg:gap-[40px] pb-16 lg:pb-24 max-w-[1240px] mx-auto">
           {EXPERTISE_CARDS.map((card) => (
             <div
               key={card.id}
-              className={`group relative w-full max-w-[373px] aspect-[373/423] cursor-pointer transition-transform duration-300 hover:-translate-y-2 ${card.positionClass}`}
+              className={`relative w-full max-w-[373px] aspect-[373/423] ${card.positionClass}`}
             >
-              {/* Outer Hexagon (373 x 423 viewBox) */}
+              {/* Outer Pointy-Top Hexagon SVG (373 x 423 viewBox) */}
               <svg viewBox="0 0 373 423" className="h-full w-full drop-shadow-2xl">
                 <defs>
-                  {/* Outer rounded hexagon clip path (373 x 423) */}
+                  {/* Outer rounded pointy-top hexagon clip path (smooth 30px corner radius rounding) */}
                   <clipPath id={`hex-outer-${card.id}`}>
-                    <path d="M 186.5 15 Q 196.5 10 206.5 15 L 348 97 Q 358 103 358 118 L 358 305 Q 358 320 348 326 L 206.5 408 Q 196.5 413 186.5 408 L 25 326 Q 15 320 15 305 L 15 118 Q 15 103 25 97 Z" />
+                    <path d="M 166.5 23.5 Q 186.5 12 206.5 23.5 L 338 99 Q 358 110 358 132 L 358 291 Q 358 313 338 324 L 206.5 399.5 Q 186.5 411 166.5 399.5 L 35 324 Q 15 313 15 291 L 15 132 Q 15 110 35 99 Z" />
                   </clipPath>
 
-                  {/* Inner rounded hexagon clip path */}
+                  {/* Inner rounded pointy-top hexagon clip path (same orientation!) */}
                   <clipPath id={`hex-inner-${card.id}`}>
-                    <path d="M 186.5 135 Q 191.5 132 196.5 135 L 268 176 Q 273 179 273 186 L 273 277 Q 273 284 268 287 L 196.5 328 Q 191.5 331 186.5 328 L 105 287 Q 100 284 100 277 L 100 186 Q 100 179 105 176 Z" />
+                    <path d="M 186.5 135 Q 191 138 263 180 Q 268 183 268 190 L 268 270 Q 268 277 263 280 L 191.5 322 Q 186.5 325 181.5 322 L 110 280 Q 105 277 105 270 L 105 190 Q 105 183 110 180 Z" />
                   </clipPath>
                 </defs>
 
-                {/* Outer Hexagon Photo Image */}
+                {/* Outer Pointy-Top Hexagon Photo Image */}
                 <g clipPath={`url(#hex-outer-${card.id})`}>
                   <image
                     href={card.image}
@@ -134,28 +134,28 @@ export default function Expertise() {
 
                 {/* Outer Hexagon White Border */}
                 <path
-                  d="M 186.5 15 Q 196.5 10 206.5 15 L 348 97 Q 358 103 358 118 L 358 305 Q 358 320 348 326 L 206.5 408 Q 196.5 413 186.5 408 L 25 326 Q 15 320 15 305 L 15 118 Q 15 103 25 97 Z"
+                  d="M 166.5 23.5 Q 186.5 12 206.5 23.5 L 338 99 Q 358 110 358 132 L 358 291 Q 358 313 338 324 L 206.5 399.5 Q 186.5 411 166.5 399.5 L 35 324 Q 15 313 15 291 L 15 132 Q 15 110 35 99 Z"
                   fill="none"
                   stroke="#ffffff"
                   strokeWidth="3.5"
                   opacity="0.95"
                 />
 
-                {/* Center Inner White Hexagon Card */}
+                {/* Center Inner Pointy-Top White Hexagon Card */}
                 <g clipPath={`url(#hex-inner-${card.id})`}>
                   <rect x="0" y="0" width="373" height="423" fill="#ffffff" />
                 </g>
 
                 {/* Inner Hexagon Border */}
                 <path
-                  d="M 186.5 135 Q 191.5 132 196.5 135 L 268 176 Q 273 179 273 186 L 273 277 Q 273 284 268 287 L 196.5 328 Q 191.5 331 186.5 328 L 105 287 Q 100 284 100 277 L 100 186 Q 100 179 105 176 Z"
+                  d="M 186.5 135 Q 191 138 263 180 Q 268 183 268 190 L 268 270 Q 268 277 263 280 L 191.5 322 Q 186.5 325 181.5 322 L 110 280 Q 105 277 105 270 L 105 190 Q 105 183 110 180 Z"
                   fill="none"
                   stroke="#f1f5f9"
                   strokeWidth="1.5"
                 />
               </svg>
 
-              {/* Inner Content overlay positioned over inner white hexagon */}
+              {/* Inner Content overlay centered inside inner pointy-top white hexagon */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none z-10">
                 {/* 64px x 69px Icon Holder */}
                 <div className="w-[64px] h-[69px] flex items-center justify-center rounded-full bg-red-50/50">
