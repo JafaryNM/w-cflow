@@ -5,10 +5,11 @@ const EXPERTISE_CARDS = [
     id: "food",
     title: "Food & Beverage Analysis",
     image: "/images/food-analysis.jpg",
+    positionClass: "translate-y-0",
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-10 w-10 stroke-[#E85D5D]"
+        className="h-8 w-8 stroke-[#E85D5D]"
         fill="none"
         strokeWidth="1.8"
         strokeLinecap="round"
@@ -28,10 +29,11 @@ const EXPERTISE_CARDS = [
     id: "agro",
     title: "Agroscience Analysis",
     image: "/images/agro-analysis.jpg",
+    positionClass: "md:translate-y-12 lg:translate-y-16",
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-10 w-10 stroke-[#E85D5D]"
+        className="h-8 w-8 stroke-[#E85D5D]"
         fill="none"
         strokeWidth="1.8"
         strokeLinecap="round"
@@ -49,10 +51,11 @@ const EXPERTISE_CARDS = [
     id: "soil",
     title: "Soil Analysis",
     image: "/images/soil-analysis.jpg",
+    positionClass: "translate-y-0",
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-10 w-10 stroke-[#E85D5D]"
+        className="h-8 w-8 stroke-[#E85D5D]"
         fill="none"
         strokeWidth="1.8"
         strokeLinecap="round"
@@ -69,39 +72,49 @@ const EXPERTISE_CARDS = [
 
 export default function Expertise() {
   return (
-    <section className="relative w-full bg-[#f8fafc] py-20 lg:py-28 overflow-hidden text-slate-900 font-sans">
+    <section className="relative w-full bg-[#fafafa] py-20 lg:py-28 overflow-hidden text-slate-900 font-sans">
+      {/* Background Image Provided by User */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/expertise-bg.jpg"
+          alt="Expertise Background"
+          className="h-full w-full object-cover object-center opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/95" />
+      </div>
+
       {/* Subtle Background Geometric Square Pattern Accent */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.035] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]" />
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-16 text-center lg:mb-20">
+        <div className="mb-14 text-center lg:mb-16">
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Our Expertise
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-600 sm:text-base">
             Improve all products to make them safer, better and more accessible
             for environment.
           </p>
         </div>
 
-        {/* 3 Hexagonal Cards Grid */}
-        <div className="grid grid-cols-1 items-center justify-items-center gap-10 md:grid-cols-3 md:gap-8">
+        {/* 3 Hexagonal Cards Grid in V-Formation Stagger */}
+        <div className="grid grid-cols-1 items-start justify-items-center gap-6 md:grid-cols-3 md:gap-4 lg:gap-6 pb-12 lg:pb-16">
           {EXPERTISE_CARDS.map((card) => (
             <div
               key={card.id}
-              className="group relative w-full max-w-[310px] aspect-[1/1.15] cursor-pointer transition-transform duration-300 hover:-translate-y-2"
+              className={`group relative w-full max-w-[340px] aspect-[1/1.12] cursor-pointer transition-transform duration-300 hover:-translate-y-2 ${card.positionClass}`}
             >
-              <svg viewBox="0 0 300 340" className="h-full w-full drop-shadow-xl">
+              <svg viewBox="0 0 320 360" className="h-full w-full drop-shadow-2xl">
                 <defs>
                   {/* Outer rounded hexagon clip path */}
                   <clipPath id={`hex-outer-${card.id}`}>
-                    <path d="M 150 12 Q 160 8 170 12 L 278 72 Q 288 78 288 92 L 288 248 Q 288 262 278 268 L 170 328 Q 160 332 150 328 L 22 268 Q 12 262 12 248 L 12 92 Q 12 78 22 72 Z" />
+                    <path d="M 160 12 Q 170 8 180 12 L 298 78 Q 308 84 308 98 L 308 262 Q 308 276 298 282 L 180 348 Q 170 352 160 348 L 22 282 Q 12 276 12 262 L 12 98 Q 12 84 22 78 Z" />
                   </clipPath>
 
-                  {/* Inner rounded hexagon clip path */}
+                  {/* Smaller Inner rounded hexagon clip path to show more outer photo space */}
                   <clipPath id={`hex-inner-${card.id}`}>
-                    <path d="M 150 90 Q 155 87 160 90 L 214 121 Q 219 124 219 131 L 219 209 Q 219 216 214 219 L 160 250 Q 155 253 150 250 L 86 219 Q 81 216 81 209 L 81 131 Q 81 124 86 121 Z" />
+                    <path d="M 160 115 Q 164 112 168 115 L 210 138 Q 214 140 214 145 L 214 215 Q 214 220 210 222 L 168 245 Q 164 248 160 245 L 110 222 Q 106 220 106 215 L 106 145 Q 106 140 110 138 Z" />
                   </clipPath>
                 </defs>
 
@@ -111,43 +124,43 @@ export default function Expertise() {
                     href={card.image}
                     x="0"
                     y="0"
-                    width="300"
-                    height="340"
+                    width="320"
+                    height="360"
                     preserveAspectRatio="xMidYMid slice"
                   />
-                  {/* Subtle dark tint on image for contrast */}
-                  <rect x="0" y="0" width="300" height="340" fill="#000000" opacity="0.1" />
+                  {/* Light overlay on image for vibrancy */}
+                  <rect x="0" y="0" width="320" height="360" fill="#000000" opacity="0.05" />
                 </g>
 
                 {/* Outer Hexagon Border */}
                 <path
-                  d="M 150 12 Q 160 8 170 12 L 278 72 Q 288 78 288 92 L 288 248 Q 288 262 278 268 L 170 328 Q 160 332 150 328 L 22 268 Q 12 262 12 248 L 12 92 Q 12 78 22 72 Z"
+                  d="M 160 12 Q 170 8 180 12 L 298 78 Q 308 84 308 98 L 308 262 Q 308 276 298 282 L 180 348 Q 170 352 160 348 L 22 282 Q 12 276 12 262 L 12 98 Q 12 84 22 78 Z"
                   fill="none"
                   stroke="#ffffff"
                   strokeWidth="3"
-                  opacity="0.8"
+                  opacity="0.9"
                 />
 
-                {/* Center Inner White Hexagon Card */}
+                {/* Smaller Center Inner White Hexagon Card */}
                 <g clipPath={`url(#hex-inner-${card.id})`}>
-                  <rect x="0" y="0" width="300" height="340" fill="#ffffff" />
+                  <rect x="0" y="0" width="320" height="360" fill="#ffffff" />
                 </g>
 
-                {/* Inner Hexagon Subtle Border */}
+                {/* Inner Hexagon Border */}
                 <path
-                  d="M 150 90 Q 155 87 160 90 L 214 121 Q 219 124 219 131 L 219 209 Q 219 216 214 219 L 160 250 Q 155 253 150 250 L 86 219 Q 81 216 81 209 L 81 131 Q 81 124 86 121 Z"
+                  d="M 160 115 Q 164 112 168 115 L 210 138 Q 214 140 214 145 L 214 215 Q 214 220 210 222 L 168 245 Q 164 248 160 245 L 110 222 Q 106 220 106 215 L 106 145 Q 106 140 110 138 Z"
                   fill="none"
                   stroke="#f1f5f9"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                 />
               </svg>
 
-              {/* Content overlay positioned exactly over the inner white hexagon */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center pointer-events-none z-10">
-                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-red-50/50">
+              {/* Content overlay positioned inside the smaller inner white hexagon */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none z-10">
+                <div className="mb-1 flex h-10 w-10 items-center justify-center rounded-full bg-red-50/60">
                   {card.icon}
                 </div>
-                <h3 className="max-w-[140px] text-sm font-extrabold leading-tight text-slate-900 sm:text-base">
+                <h3 className="max-w-[105px] text-xs font-extrabold leading-tight text-slate-900 sm:text-sm">
                   {card.title}
                 </h3>
               </div>
