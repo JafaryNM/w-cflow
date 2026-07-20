@@ -283,13 +283,8 @@ export default function Hero() {
 
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-14">
               <img
-                src="/images/partners/partner-antwerp.png"
-                alt="Antwerp Partner"
-                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
-              />
-              <img
-                src="/images/partners/partner-comtech.png"
-                alt="Comtech Partner"
+                src="/images/partners/partner-natgeo.png"
+                alt="National Geographic Partner"
                 className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
               />
               <img
@@ -298,8 +293,13 @@ export default function Hero() {
                 className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
               />
               <img
-                src="/images/partners/partner-natgeo.png"
-                alt="National Geographic Partner"
+                src="/images/partners/partner-antwerp.png"
+                alt="Antwerp Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+              <img
+                src="/images/partners/partner-comtech.png"
+                alt="Comtech Partner"
                 className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
               />
               <img
@@ -316,19 +316,6 @@ export default function Hero() {
           </div>
         </div>
       </main>
-
-      {/* Floating Bottom-Right Subscribe Card */}
-      <div className="absolute bottom-5 right-4 z-30 sm:bottom-6 sm:right-8 lg:bottom-8 lg:right-10">
-        <a
-          href="#"
-          className="inline-flex items-center gap-2.5 rounded-sm bg-[#0084e3] px-4 py-2.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-xl transition-colors hover:bg-[#0074ca] sm:px-5 sm:py-3 sm:text-xs"
-        >
-          <svg className="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-          </svg>
-          <span>NEVER MISS NEW LAUNCHES! SUBSCRIBE!</span>
-        </a>
-      </div>
 
       {/* Straight-diagonal chevron with lightly softened ~30px rounded vertex tip */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 w-full overflow-hidden leading-none">
