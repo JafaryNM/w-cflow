@@ -9,9 +9,9 @@ const EXPERTISE_CARDS = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-8 w-8 stroke-[#E85D5D]"
+        className="h-12 w-12 stroke-[#E85D5D]"
         fill="none"
-        strokeWidth="1.8"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -33,9 +33,9 @@ const EXPERTISE_CARDS = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-8 w-8 stroke-[#E85D5D]"
+        className="h-12 w-12 stroke-[#E85D5D]"
         fill="none"
-        strokeWidth="1.8"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -55,9 +55,9 @@ const EXPERTISE_CARDS = [
     icon: (
       <svg
         viewBox="0 0 24 24"
-        className="h-8 w-8 stroke-[#E85D5D]"
+        className="h-12 w-12 stroke-[#E85D5D]"
         fill="none"
-        strokeWidth="1.8"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -86,7 +86,7 @@ export default function Expertise() {
       {/* Subtle Background Geometric Square Pattern Accent */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.04] bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:24px_24px]" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
         {/* Section Header */}
         <div className="mb-14 text-center lg:mb-16">
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
@@ -98,69 +98,72 @@ export default function Expertise() {
           </p>
         </div>
 
-        {/* 3 Hexagonal Cards Grid in V-Formation Stagger */}
-        <div className="grid grid-cols-1 items-start justify-items-center gap-6 md:grid-cols-3 md:gap-4 lg:gap-6 pb-12 lg:pb-16">
+        {/* 3 Hexagonal Cards Grid (373px x 423px exact dimensions, 40px flexible gap) */}
+        <div className="grid grid-cols-1 items-start justify-items-center gap-8 md:grid-cols-3 md:gap-6 lg:gap-[40px] pb-12 lg:pb-16 max-w-[1240px] mx-auto">
           {EXPERTISE_CARDS.map((card) => (
             <div
               key={card.id}
-              className={`group relative w-full max-w-[340px] aspect-[1/1.12] cursor-pointer transition-transform duration-300 hover:-translate-y-2 ${card.positionClass}`}
+              className={`group relative w-full max-w-[373px] aspect-[373/423] cursor-pointer transition-transform duration-300 hover:-translate-y-2 ${card.positionClass}`}
             >
-              <svg viewBox="0 0 320 360" className="h-full w-full drop-shadow-2xl">
+              {/* Outer Hexagon (373 x 423 viewBox) */}
+              <svg viewBox="0 0 373 423" className="h-full w-full drop-shadow-2xl">
                 <defs>
-                  {/* Outer rounded hexagon clip path */}
+                  {/* Outer rounded hexagon clip path (373 x 423) */}
                   <clipPath id={`hex-outer-${card.id}`}>
-                    <path d="M 160 12 Q 170 8 180 12 L 298 78 Q 308 84 308 98 L 308 262 Q 308 276 298 282 L 180 348 Q 170 352 160 348 L 22 282 Q 12 276 12 262 L 12 98 Q 12 84 22 78 Z" />
+                    <path d="M 186.5 15 Q 196.5 10 206.5 15 L 348 97 Q 358 103 358 118 L 358 305 Q 358 320 348 326 L 206.5 408 Q 196.5 413 186.5 408 L 25 326 Q 15 320 15 305 L 15 118 Q 15 103 25 97 Z" />
                   </clipPath>
 
-                  {/* Smaller Inner rounded hexagon clip path to show more outer photo space */}
+                  {/* Inner rounded hexagon clip path */}
                   <clipPath id={`hex-inner-${card.id}`}>
-                    <path d="M 160 115 Q 164 112 168 115 L 210 138 Q 214 140 214 145 L 214 215 Q 214 220 210 222 L 168 245 Q 164 248 160 245 L 110 222 Q 106 220 106 215 L 106 145 Q 106 140 110 138 Z" />
+                    <path d="M 186.5 135 Q 191.5 132 196.5 135 L 268 176 Q 273 179 273 186 L 273 277 Q 273 284 268 287 L 196.5 328 Q 191.5 331 186.5 328 L 105 287 Q 100 284 100 277 L 100 186 Q 100 179 105 176 Z" />
                   </clipPath>
                 </defs>
 
-                {/* Outer Hexagon with Background Photo */}
+                {/* Outer Hexagon Photo Image */}
                 <g clipPath={`url(#hex-outer-${card.id})`}>
                   <image
                     href={card.image}
                     x="0"
                     y="0"
-                    width="320"
-                    height="360"
+                    width="373"
+                    height="423"
                     preserveAspectRatio="xMidYMid slice"
                   />
-                  {/* Light overlay on image for vibrancy */}
-                  <rect x="0" y="0" width="320" height="360" fill="#000000" opacity="0.05" />
+                  <rect x="0" y="0" width="373" height="423" fill="#000000" opacity="0.04" />
                 </g>
 
-                {/* Outer Hexagon Border */}
+                {/* Outer Hexagon White Border */}
                 <path
-                  d="M 160 12 Q 170 8 180 12 L 298 78 Q 308 84 308 98 L 308 262 Q 308 276 298 282 L 180 348 Q 170 352 160 348 L 22 282 Q 12 276 12 262 L 12 98 Q 12 84 22 78 Z"
+                  d="M 186.5 15 Q 196.5 10 206.5 15 L 348 97 Q 358 103 358 118 L 358 305 Q 358 320 348 326 L 206.5 408 Q 196.5 413 186.5 408 L 25 326 Q 15 320 15 305 L 15 118 Q 15 103 25 97 Z"
                   fill="none"
                   stroke="#ffffff"
-                  strokeWidth="3"
-                  opacity="0.9"
+                  strokeWidth="3.5"
+                  opacity="0.95"
                 />
 
-                {/* Smaller Center Inner White Hexagon Card */}
+                {/* Center Inner White Hexagon Card */}
                 <g clipPath={`url(#hex-inner-${card.id})`}>
-                  <rect x="0" y="0" width="320" height="360" fill="#ffffff" />
+                  <rect x="0" y="0" width="373" height="423" fill="#ffffff" />
                 </g>
 
                 {/* Inner Hexagon Border */}
                 <path
-                  d="M 160 115 Q 164 112 168 115 L 210 138 Q 214 140 214 145 L 214 215 Q 214 220 210 222 L 168 245 Q 164 248 160 245 L 110 222 Q 106 220 106 215 L 106 145 Q 106 140 110 138 Z"
+                  d="M 186.5 135 Q 191.5 132 196.5 135 L 268 176 Q 273 179 273 186 L 273 277 Q 273 284 268 287 L 196.5 328 Q 191.5 331 186.5 328 L 105 287 Q 100 284 100 277 L 100 186 Q 100 179 105 176 Z"
                   fill="none"
                   stroke="#f1f5f9"
                   strokeWidth="1.5"
                 />
               </svg>
 
-              {/* Content overlay positioned inside the smaller inner white hexagon */}
+              {/* Inner Content overlay positioned over inner white hexagon */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none z-10">
-                <div className="mb-1 flex h-10 w-10 items-center justify-center rounded-full bg-red-50/60">
+                {/* 64px x 69px Icon Holder */}
+                <div className="w-[64px] h-[69px] flex items-center justify-center rounded-full bg-red-50/50">
                   {card.icon}
                 </div>
-                <h3 className="max-w-[105px] text-xs font-extrabold leading-tight text-slate-900 sm:text-sm">
+
+                {/* 16px Spacing between Icon and Title */}
+                <h3 className="mt-[16px] max-w-[130px] text-xs font-extrabold leading-tight text-slate-900 sm:text-sm">
                   {card.title}
                 </h3>
               </div>
