@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Expertise from "@/components/Expertise";
 import Solution from "@/components/Solution";
+import Impact from "@/components/Impact";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Expertise />
       <Solution />
+      <Impact />
     </main>
   );
 }
