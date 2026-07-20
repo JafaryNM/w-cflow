@@ -125,7 +125,7 @@ export default function Hero() {
         <div className="hidden items-center gap-8 text-sm font-bold tracking-wider uppercase md:flex">
           <a href="#" className="relative py-1 text-white">
             HOME
-            <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-[#E85D5D]" />
+            <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-brand-primary" />
           </a>
           <a
             href="#"
@@ -205,7 +205,7 @@ export default function Hero() {
       {menuOpen && (
         <div className="relative z-20 border-b border-white/10 bg-slate-950/95 px-6 py-4 text-sm font-bold tracking-wider uppercase backdrop-blur-md md:hidden">
           <div className="flex flex-col gap-4">
-            <a href="#" className="text-[#E85D5D]">
+            <a href="#" className="text-brand-primary">
               HOME
             </a>
             <a href="#" className="text-white/80 hover:text-white">
@@ -234,8 +234,8 @@ export default function Hero() {
       )}
 
       {/* Main Hero Copy Content */}
-      <main className="relative z-20 mx-auto my-auto flex w-full max-w-7xl flex-col items-start px-4 pt-4 pb-28 sm:px-8 lg:pt-8 lg:pb-40">
-        <div className="max-w-2xl text-left">
+      <main className="relative z-20 mx-auto my-auto flex w-full max-w-7xl flex-col items-center px-4 pt-4 pb-28 sm:px-8 lg:pt-8 lg:pb-40">
+        <div className="max-w-2xl text-center">
           {/* Headline */}
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white uppercase sm:text-5xl lg:text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
             COMPREHENSIVE
@@ -255,7 +255,7 @@ export default function Hero() {
           <div className="mt-6 sm:mt-8">
             <a
               href="#"
-              className="inline-block rounded-md bg-[#E85D5D] px-7 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-transform hover:bg-[#d94848] active:scale-95 sm:text-sm"
+              className="inline-block rounded-md bg-brand-primary px-7 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-transform hover:bg-brand-navy active:scale-95 sm:text-sm"
             >
               FIND OUT MORE
             </a>

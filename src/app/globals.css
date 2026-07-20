@@ -11,7 +11,13 @@
   --color-cflow-green: #0d2b1f;
   --color-cflow-green-light: #14432f;
   --color-cflow-yellow: #ffcc00;
-  --font-sans: var(--font-geist-sans);
+  --color-brand-primary: #007ab9;
+  --color-brand-sky: #48c6ef;
+  --color-brand-slate: #4b5563;
+  --color-brand-pale: #d7e6f0;
+  --color-brand-navy: #1d4e89;
+  --font-sans: var(--font-ubuntu), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -25,5 +31,62 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .text-display {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 90px;
+    letter-spacing: 0;
+  }
+  .text-h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0;
+  }
+  .text-h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
+  .text-label {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18.75px;
+    letter-spacing: 0;
+  }
+  .text-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
+  .text-body-sm {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0;
+  }
+  .text-label-sm {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16.5px;
+    letter-spacing: 0;
+  }
+  .text-meta {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16.5px;
+    letter-spacing: 0;
+  }
+  .text-link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
 }
