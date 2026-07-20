@@ -1,179 +1,292 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-
-const NAV_LINKS = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Timeline", href: "#timeline" },
-  { label: "The Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
-];
+import Image from "next/image";
+import logoAsset from "@/assets/logo.png";
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative isolate overflow-hidden bg-cflow-green text-white">
-      {/* Decorative background: wave / topographic motif in brand colors (placeholder
-          for a field photo — see brief section 9, photos still pending). */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(20,67,47,0.9),rgba(13,43,31,1)_55%)]" />
-        <svg
-          className="absolute bottom-0 left-0 w-full opacity-20"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <path
-            fill="#ffffff"
-            d="M0,224 C240,288 480,160 720,192 C960,224 1200,288 1440,224 L1440,320 L0,320 Z"
-          />
-        </svg>
-        <svg
-          className="absolute bottom-0 left-0 w-full opacity-10"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <path
-            fill="#ffcc00"
-            d="M0,256 C320,192 420,288 720,256 C1020,224 1120,160 1440,256 L1440,320 L0,320 Z"
-          />
-        </svg>
+    <section className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-slate-950 text-white font-sans">
+      {/* Background Microscope Image with Dark Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/microscope-bg.jpg"
+          alt="Laboratory microscope"
+          className="h-full w-full object-cover object-center"
+        />
+        {/* Balanced dark semi-transparent overlay layer (subdues bright lights, not too black) */}
+        <div className="absolute inset-0 bg-slate-950/55 bg-gradient-to-r from-slate-950/75 via-slate-950/55 to-slate-950/40" />
       </div>
 
-      {/* Top utility bar */}
-      <div className="relative z-10 border-b border-white/10 bg-black/20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs text-white/80">
-          <span className="hidden sm:inline">Pangani River Basin, North Tanzania</span>
-          <div className="flex items-center gap-4">
-            <span>Funded by National Geographic Society</span>
+      {/* Top Utility Bar */}
+      <header className="relative z-20 w-full border-b border-white/10 bg-slate-950/40 backdrop-blur-xs">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 text-xs text-white/90 sm:px-8">
+          {/* Left Info: Phone & Address */}
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
             <a
-              href="https://instagram.com/cflowproject"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-white/90 transition-colors hover:text-cflow-yellow"
+              href="tel:+188700600"
+              className="flex items-center gap-2 transition-colors hover:text-white"
             >
-              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.25.07 1.62.07 4.81 0 3.2-.01 3.56-.07 4.81-.15 3.23-1.66 4.77-4.92 4.92-1.25.06-1.62.07-4.85.07-3.2 0-3.56-.01-4.81-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.25-.07-1.61-.07-4.81 0-3.19.01-3.56.07-4.81.15-3.23 1.67-4.77 4.92-4.92C8.44 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.51.01-4.74.07-2.35.1-3.44 1.22-3.55 3.55-.05 1.23-.06 1.6-.06 4.74s.01 3.51.06 4.74c.11 2.33 1.2 3.45 3.55 3.55 1.23.05 1.6.07 4.74.07s3.51-.02 4.74-.07c2.34-.1 3.45-1.22 3.55-3.55.05-1.23.06-1.6.06-4.74s-.01-3.51-.06-4.74c-.1-2.33-1.21-3.45-3.55-3.55C15.51 4.01 15.14 4 12 4zm0 3.7A4.3 4.3 0 1 1 7.7 12 4.3 4.3 0 0 1 12 7.7zm0 7.09A2.79 2.79 0 1 0 9.21 12 2.79 2.79 0 0 0 12 14.79zm5.47-7.26a1.01 1.01 0 1 1-1.01-1.01 1.01 1.01 0 0 1 1.01 1.01z" />
+              <svg
+                className="h-3.5 w-3.5 fill-current text-white/80"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
               </svg>
-              @cflowproject
+              <span>(+1) 88 700 600</span>
             </a>
+
+            <div className="flex items-center gap-2">
+              <svg
+                className="h-3.5 w-3.5 fill-current text-white/80"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              <span>310 West 14th North Street, NY</span>
+            </div>
+          </div>
+
+          {/* Right Info: Social Icons & Download Button */}
+          <div className="hidden items-center gap-5 sm:flex">
+            <div className="flex items-center gap-3 text-white/80">
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="transition-colors hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.79 5.6c1.1 0 2.26.2 2.26.2v2.48h-1.27c-1.23 0-1.62.77-1.62 1.56V12h2.78l-.44 3h-2.34v6.8c4.56-.93 8-4.96 8-9.8z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="Twitter"
+                className="transition-colors hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="transition-colors hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="transition-colors hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
+              </a>
+            </div>
+
+            <button
+              type="button"
+              className="inline-flex items-center gap-1.5 rounded border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-white/20"
+            >
+              <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-400">
+                <svg
+                  className="h-2 w-2 translate-x-[0.5px] fill-slate-950"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              <span>Download this video</span>
+            </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Main nav */}
-      <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="shrink-0 rounded-lg bg-white px-3 py-2 shadow-sm">
+      {/* Main Navigation */}
+      <nav className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-5 sm:px-8">
+        {/* Brand Logo Asset Only (No NOVALAB text) */}
+        <a href="#" className="flex items-center shrink-0">
           <Image
-            src="/images/cflow-logo.jpeg"
-            alt="C-FLOW Project — Community-Driven Multi-Tier Flood Early Warning System"
-            width={220}
-            height={56}
-            className="h-11 w-auto sm:h-14"
+            src={logoAsset}
+            alt="Logo"
+            height={44}
+            className="h-10 w-auto object-contain drop-shadow-md sm:h-12"
             priority
           />
         </a>
 
-        <div className="hidden items-center gap-8 text-sm font-semibold tracking-wide uppercase md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-white/90 transition-colors hover:text-cflow-yellow"
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* Navigation Links */}
+        <div className="hidden items-center gap-8 text-sm font-bold tracking-wider uppercase md:flex">
+          <a href="#" className="relative py-1 text-white">
+            HOME
+            <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-[#E85D5D]" />
+          </a>
+          <a
+            href="#"
+            className="py-1 text-white/80 transition-colors hover:text-white"
+          >
+            ABOUT
+          </a>
+          <a
+            href="#"
+            className="py-1 text-white/80 transition-colors hover:text-white"
+          >
+            SERVICES
+          </a>
+          <a
+            href="#"
+            className="py-1 text-white/80 transition-colors hover:text-white"
+          >
+            PAGES
+          </a>
+          <a
+            href="#"
+            className="py-1 text-white/80 transition-colors hover:text-white"
+          >
+            ELEMENTS
+          </a>
         </div>
 
-        <a
-          href="#contact"
-          className="hidden items-center gap-2 rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-cflow-yellow hover:text-cflow-yellow md:inline-flex"
-        >
-          Get Involved
-        </a>
+        {/* Right Action Button */}
+        <div className="hidden items-center md:flex">
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 rounded-md border border-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-white hover:text-slate-950 sm:text-sm"
+          >
+            <svg
+              className="h-4 w-4 fill-current"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+            </svg>
+            <span>Schedule a consultation</span>
+          </a>
+        </div>
 
+        {/* Mobile Menu Toggle Button */}
         <button
           type="button"
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation menu"
-          className="inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-white md:hidden"
+          className="inline-flex items-center justify-center rounded-md border border-white/30 p-2 text-white md:hidden"
         >
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
       </nav>
 
+      {/* Mobile Drawer Menu */}
       {menuOpen && (
-        <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-4 border-t border-white/10 px-6 py-4 text-sm font-semibold tracking-wide uppercase md:hidden">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-white/90 transition-colors hover:text-cflow-yellow"
-            >
-              {link.label}
+        <div className="relative z-20 border-b border-white/10 bg-slate-950/95 px-6 py-4 text-sm font-bold tracking-wider uppercase backdrop-blur-md md:hidden">
+          <div className="flex flex-col gap-4">
+            <a href="#" className="text-[#E85D5D]">
+              HOME
             </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white"
-          >
-            Get Involved
-          </a>
+            <a href="#" className="text-white/80 hover:text-white">
+              ABOUT
+            </a>
+            <a href="#" className="text-white/80 hover:text-white">
+              SERVICES
+            </a>
+            <a href="#" className="text-white/80 hover:text-white">
+              PAGES
+            </a>
+            <a href="#" className="text-white/80 hover:text-white">
+              ELEMENTS
+            </a>
+            <a
+              href="#"
+              className="mt-2 inline-flex items-center gap-2 rounded-md border border-white/70 px-4 py-2 text-xs font-semibold text-white"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+              </svg>
+              <span>Schedule a consultation</span>
+            </a>
+          </div>
         </div>
       )}
 
-      {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-40 sm:pt-24 sm:pb-56">
-        <p className="mb-4 text-sm font-semibold tracking-[0.2em] text-cflow-yellow uppercase">
-          C-FLOW Project — Community, Floods, Learning, Opportunities, Warnings
-        </p>
-        <h1 className="max-w-4xl text-5xl leading-[1.05] font-extrabold tracking-tight uppercase sm:text-6xl md:text-7xl">
-          Early Warnings,
-          <br />
-          Built With Communities,
-          <br />
-          For Communities.
-        </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85 sm:text-xl">
-          A community-driven, multi-tier flood early warning system protecting over
-          50,000 people across Tanzania&apos;s Pangani Basin — combining IoT river
-          sensors, AI forecasting, and locally co-designed alerts.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#about"
-            className="inline-flex items-center justify-center rounded-md bg-cflow-yellow px-8 py-4 text-sm font-bold tracking-wide text-cflow-green uppercase shadow-lg transition-transform hover:scale-[1.03]"
-          >
-            Find Out More
-          </a>
-          <a
-            href="#how-it-works"
-            className="inline-flex items-center justify-center rounded-md border border-white/40 px-8 py-4 text-sm font-bold tracking-wide text-white uppercase transition-colors hover:border-white hover:bg-white/10"
-          >
-            How It Works
-          </a>
+      {/* Main Hero Copy Content */}
+      <main className="relative z-20 mx-auto my-auto flex w-full max-w-7xl flex-col items-start px-4 pt-4 pb-28 sm:px-8 lg:pt-8 lg:pb-40">
+        <div className="max-w-2xl text-left">
+          {/* Headline */}
+          <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white uppercase sm:text-5xl lg:text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+            COMPREHENSIVE
+            <br />
+            LABORATORY
+            <br />
+            SERVICES
+          </h1>
+
+          {/* Subheadline */}
+          <p className="mt-4 max-w-lg text-sm font-normal leading-relaxed text-white/95 sm:text-base lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            Ensuring the delivery of reliable, validated data, and therefore
+            safer product to market
+          </p>
+
+          {/* Primary CTA Button */}
+          <div className="mt-6 sm:mt-8">
+            <a
+              href="#"
+              className="inline-block rounded-md bg-[#E85D5D] px-7 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-transform hover:bg-[#d94848] active:scale-95 sm:text-sm"
+            >
+              FIND OUT MORE
+            </a>
+          </div>
         </div>
+      </main>
+
+      {/* Floating Bottom-Right Subscribe Card */}
+      <div className="absolute bottom-5 right-4 z-30 sm:bottom-6 sm:right-8 lg:bottom-8 lg:right-10">
+        <a
+          href="#"
+          className="inline-flex items-center gap-2.5 rounded-sm bg-[#0084e3] px-4 py-2.5 text-[11px] font-bold tracking-wider text-white uppercase shadow-xl transition-colors hover:bg-[#0074ca] sm:px-5 sm:py-3 sm:text-xs"
+        >
+          <svg className="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          <span>NEVER MISS NEW LAUNCHES! SUBSCRIBE!</span>
+        </a>
       </div>
 
-      {/* Diagonal white cutaway at the base of the hero */}
-      <div
-        className="absolute inset-x-0 bottom-0 z-10 h-36 bg-background sm:h-52 md:h-64"
-        style={{ clipPath: "polygon(0 0, 65% 100%, 0 100%)" }}
-      />
-    </header>
+      {/* Straight-diagonal chevron with lightly softened ~30px rounded vertex tip */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 w-full overflow-hidden leading-none">
+        <svg
+          className="relative block w-full h-[15vh] sm:h-[18vh] lg:h-[22vh] max-h-[220px] text-white fill-current"
+          viewBox="0 0 1000 160"
+          preserveAspectRatio="none"
+        >
+          {/* Perfectly straight 9.5° diagonal lines meeting at a subtly rounded tip (30px radius) */}
+          <path d="M 0,0 L 470,135 Q 500,150 530,135 L 1000,0 L 1000,160 L 0,160 Z" />
+        </svg>
+      </div>
+    </section>
   );
 }
