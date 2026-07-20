@@ -16,7 +16,7 @@ export default function Hero() {
           alt="Laboratory microscope"
           className="h-full w-full object-cover object-center"
         />
-        {/* Balanced dark semi-transparent overlay layer (subdues bright lights, not too black) */}
+        {/* Balanced dark semi-transparent overlay layer */}
         <div className="absolute inset-0 bg-slate-950/55 bg-gradient-to-r from-slate-950/75 via-slate-950/55 to-slate-950/40" />
       </div>
 
@@ -125,7 +125,7 @@ export default function Hero() {
         <div className="hidden items-center gap-8 text-sm font-bold tracking-wider uppercase md:flex">
           <a href="#" className="relative py-1 text-white">
             HOME
-            <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-brand-primary" />
+            <span className="absolute bottom-0 left-0 h-[2.5px] w-full rounded-full bg-[#E85D5D]" />
           </a>
           <a
             href="#"
@@ -159,10 +159,7 @@ export default function Hero() {
             href="#"
             className="inline-flex items-center gap-2 rounded-md border border-white/70 px-4 py-2 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-white hover:text-slate-950 sm:text-sm"
           >
-            <svg
-              className="h-4 w-4 fill-current"
-              viewBox="0 0 24 24"
-            >
+            <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
               <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
             </svg>
             <span>Schedule a consultation</span>
@@ -205,7 +202,7 @@ export default function Hero() {
       {menuOpen && (
         <div className="relative z-20 border-b border-white/10 bg-slate-950/95 px-6 py-4 text-sm font-bold tracking-wider uppercase backdrop-blur-md md:hidden">
           <div className="flex flex-col gap-4">
-            <a href="#" className="text-brand-primary">
+            <a href="#" className="text-[#E85D5D]">
               HOME
             </a>
             <a href="#" className="text-white/80 hover:text-white">
@@ -234,31 +231,88 @@ export default function Hero() {
       )}
 
       {/* Main Hero Copy Content */}
-      <main className="relative z-20 mx-auto my-auto flex w-full max-w-7xl flex-col items-center px-4 pt-4 pb-28 sm:px-8 lg:pt-8 lg:pb-40">
-        <div className="max-w-2xl text-center">
-          {/* Headline */}
-          <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white uppercase sm:text-5xl lg:text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
-            COMPREHENSIVE
-            <br />
-            LABORATORY
-            <br />
-            SERVICES
+      <main className="relative z-20 mx-auto my-auto flex w-full max-w-7xl flex-col items-center px-4 pt-4 pb-28 text-center sm:px-8 lg:pt-8 lg:pb-36">
+        <div className="w-full max-w-4xl lg:max-w-5xl text-center">
+          {/* Headline: strictly 2 lines */}
+          <h1 className="text-2xl font-extrabold leading-[1.15] tracking-tight text-white uppercase sm:text-4xl lg:text-5xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+            <span className="block whitespace-nowrap sm:whitespace-normal">
+              COMPREHENSIVE LABORATORY
+            </span>
+            <span className="block mt-1">SERVICES</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="mt-4 max-w-lg text-sm font-normal leading-relaxed text-white/95 sm:text-base lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          <p className="mx-auto mt-4 max-w-xl text-sm font-normal leading-relaxed text-white/95 sm:text-base lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             Ensuring the delivery of reliable, validated data, and therefore
             safer product to market
           </p>
 
-          {/* Primary CTA Button */}
-          <div className="mt-6 sm:mt-8">
+          {/* 2 CTA Buttons: TIMELINE and EVENTS */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-8">
             <a
-              href="#"
-              className="inline-block rounded-md bg-brand-primary px-7 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-transform hover:bg-brand-navy active:scale-95 sm:text-sm"
+              href="#timeline"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/60 bg-white/10 px-6 py-3 text-xs font-bold tracking-wider text-white uppercase backdrop-blur-xs transition-all hover:bg-white hover:text-slate-950 sm:text-sm"
             >
-              FIND OUT MORE
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+              </svg>
+              <span>TIMELINE</span>
             </a>
+
+            <a
+              href="#events"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#0084e3] px-6 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-colors hover:bg-[#0074ca] sm:text-sm"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+              </svg>
+              <span>EVENTS</span>
+            </a>
+          </div>
+
+          {/* Supported Partners Section: moved down, transparent label, larger logos */}
+          <div className="mt-16 sm:mt-20 lg:mt-24 w-full max-w-5xl mx-auto">
+            <div className="relative flex items-center justify-center mb-8">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-white/20" />
+              </div>
+              <span className="relative bg-transparent px-4 text-[11px] sm:text-xs font-bold tracking-[0.2em] text-white/75 uppercase">
+                SUPPORTED PARTNERS
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-14">
+              <img
+                src="/images/partners/partner-antwerp.png"
+                alt="Antwerp Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+              <img
+                src="/images/partners/partner-comtech.png"
+                alt="Comtech Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+              <img
+                src="/images/partners/partner-ministry-water.webp"
+                alt="Ministry of Water Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+              <img
+                src="/images/partners/partner-natgeo.png"
+                alt="National Geographic Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+              <img
+                src="/images/partners/partner-pbwb.png"
+                alt="PBWB Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+              <img
+                src="/images/partners/partner-tma.png"
+                alt="TMA Partner"
+                className="h-9 sm:h-12 lg:h-14 w-auto object-contain grayscale brightness-125 opacity-75 transition-all duration-300 hover:grayscale-0 hover:brightness-100 hover:opacity-100 hover:scale-105 cursor-pointer"
+              />
+            </div>
           </div>
         </div>
       </main>
